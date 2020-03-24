@@ -1,18 +1,20 @@
 import java.io.*;
 import java.net.*;
 
-class FTP_Server
+class FTPS
 {
 public static void main(String[] args) throws Exception
 {
 ServerSocket Sock=new ServerSocket(Integer.parseInt(args[0]));
 Socket s=Sock.accept();
-BufferedReader ob = new BufferedReader(new InputStreamReader(System.in));
 DataInputStream cin=new DataInputStream(s.getInputStream());
 DataOutputStream cout=new DataOutputStream(s.getOutputStream());
-FTP_Server ftp=new FTP_Server();
+
+FTPS ftp=new FTPS();
 while(true)
-{String option="";
+{
+
+String option=cin.readUTF();
 if(option.equals("SEND")){
 System.out.println("SEND Command Received..");
 ftp.sendfile(s);
@@ -63,5 +65,4 @@ fout.write(ch);
 }
 System.out.println("Received File...");
 fout.close();
-}
 }

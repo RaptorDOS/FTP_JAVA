@@ -1,7 +1,7 @@
 import java.io.*;
 import java.net.*;
 
-public class FTP_Client
+class client
 {
 
 
@@ -9,13 +9,11 @@ public static void main(String[] args) throws Exception
 {
 String option;
 DataInputStream in=new DataInputStream(System.in);
-Socket s=new Socket("172.17.0.1",Integer.parseInt(args[0]));
-DataInputStream cin=new DataInputStream(s.getInputStream());
-DataOutputStream cout=new DataOutputStream(s.getOutputStream());
+Socket s=new Socket("localhost",Integer.parseInt(args[0]));
 System.out.println("MENU");
 System.out.println("1.SEND");
 System.out.println("2.RECEIVE");
-FTP_Client ftp=new FTP_Client();
+client ftp=new client();
 while(true)
 {
 option=in.readLine();
